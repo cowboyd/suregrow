@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+		"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Autogrowing Textarea Demo</title>
+	<script type="text/javascript" src="blackbird/blackbird.js"></script>
+	<script type="text/javascript" src="jquery-1.2.6.js"></script>
+	<script type="text/javascript" src="jquery.easing-1.3.js"></script>
+	<script type="text/javascript" src="jquery.suregrow.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#basicSearchField').suregrow()
+		})
+	</script>
+	<link rel="stylesheet" media="screen" href="blackbird/blackbird.css"/>
+	<style type="text/css">
+		.instructions {
+			font-size: 36px;
+			margin-bottom: 100px;
+		}
+
+		#basicSearchField {
+			width: 350px;
+			font-size: 15px;
+			resize: none;
+		}
+
+		.searchCollectionSelect {
+			margin-top: 1px;
+			margin-right: 2px;
+		}
+	</style>
+</head>
+<body>
+<center>
+<div class="instructions">
+	Enter in text to the text box to view growing behavior
+</div>
+<table cellpadding="0" cellspacing="0"><tr>
+  <td style="vertical-align: top;"><select name="local" class="searchCollectionSelect">
+	  <option value="true">Search our entire collection</option>
+	  <option disabled="">-----------------------------</option>
+	  <option value="false">Search our collection and beyond</option>
+  </select></td>
+
+	<td style="vertical-align: top; text-align: right; width: 350px;">
+		<textarea id="basicSearchField" name="q" size="30" type="text"></textarea>
+	</td>
+	<td style="vertical-align: top;"><input style="margin-left: 5px;"type="submit" value="Search" /></td>
+</tr></table>
+</center>
+<hr/>
+<div>Content Below</div>
+</body>
+</html>

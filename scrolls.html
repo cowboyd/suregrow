@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+		"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Widths Of Scrollable Content</title>
+	<script type="text/javascript" src="jquery-1.2.6.js"></script>
+	<style type="text/css">
+		textarea {
+			width: 350px;
+			height: 300px;
+			font-size: 12px;
+		}
+
+		table {
+			margin-top: 200px;
+		}
+
+		#t2 {
+			overflow-y: hidden;
+		}
+
+		#t1, #t3 {
+			overflow-y: scroll;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function() {
+
+			function addField(el, label, value) {
+				el.append("<b>" + label + "</b>: " + value + "<br/>")
+			}
+
+			function showWidthInfo() {
+				for (var i = 0; i < arguments.length; i++) {
+					var id = arguments[i];
+					var t = $(id)
+					var el = t.get(0);
+					var output = $(id + 'w')
+					output.empty()
+					var cssLineHeight = t.css('lineHeight');
+					addField(output, 'outerWidth', t.outerWidth())
+					addField(output, 'innerWidth', t.innerWidth())
+					addField(output, 'scrollWidth:', el.scrollWidth)
+					addField(output, 'lineHeight:', cssLineHeight)
+					addField(output, 'Total Lines', el.scrollHeight / new Number(cssLineHeight.slice(0,2)))
+				}
+			}
+
+			var t3 = $('#t3')
+			t3.width(t3.innerWidth() + (t3.innerWidth() - t3.get(0).scrollWidth))
+
+
+			showWidthInfo('#t1', '#t2', '#t3')
+		})
+	</script>
+</head>
+<body>
+<center>
+<table>
+<tr>
+	<td><textarea id="t1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo. Ut posuere eleifend diam. Nullam facilisis aliquet dolor. Maecenas eros. Curabitur convallis tempor est. Etiam urna. Pellentesque adipiscing congue odio. Curabitur velit purus, euismod id, suscipit sit amet, lobortis a, pede. Phasellus vel nunc. Maecenas tempor malesuada neque. Fusce enim velit, adipiscing ut, laoreet id, molestie ut, nisl. Duis rhoncus rutrum massa. Donec nulla magna, eleifend ut, fermentum a, porta eget, sapien. Proin at nulla at dolor hendrerit aliquam. Sed vel orci eget nulla elementum tincidunt. Nulla dapibus. Nam eleifend vehicula urna. Etiam dignissim urna quis nunc. Nullam lorem. Curabitur.</textarea></td>
+	<td><textarea id="t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo. Ut posuere eleifend diam. Nullam facilisis aliquet dolor. Maecenas eros. Curabitur convallis tempor est. Etiam urna. Pellentesque adipiscing congue odio. Curabitur velit purus, euismod id, suscipit sit amet, lobortis a, pede. Phasellus vel nunc. Maecenas tempor malesuada neque. Fusce enim velit, adipiscing ut, laoreet id, molestie ut, nisl. Duis rhoncus rutrum massa. Donec nulla magna, eleifend ut, fermentum a, porta eget, sapien. Proin at nulla at dolor hendrerit aliquam. Sed vel orci eget nulla elementum tincidunt. Nulla dapibus. Nam eleifend vehicula urna. Etiam dignissim urna quis nunc. Nullam lorem. Curabitur.</textarea></td>
+	<td><textarea id="t3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo. Ut posuere eleifend diam. Nullam facilisis aliquet dolor. Maecenas eros. Curabitur convallis tempor est. Etiam urna. Pellentesque adipiscing congue odio. Curabitur velit purus, euismod id, suscipit sit amet, lobortis a, pede. Phasellus vel nunc. Maecenas tempor malesuada neque. Fusce enim velit, adipiscing ut, laoreet id, molestie ut, nisl. Duis rhoncus rutrum massa. Donec nulla magna, eleifend ut, fermentum a, porta eget, sapien. Proin at nulla at dolor hendrerit aliquam. Sed vel orci eget nulla elementum tincidunt. Nulla dapibus. Nam eleifend vehicula urna. Etiam dignissim urna quis nunc. Nullam lorem. Curabitur.</textarea></td>
+</tr>
+<tr><td id="t1w"></td><td id="t2w"></td><td id="t3w"></td></tr>
+</table></center>
+</body>
+</html>
